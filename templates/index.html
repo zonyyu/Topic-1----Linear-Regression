@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Tutorial</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  </head>
+  <body>
+    <h1> GPU Performance Predictor </h1>
+
+    <div id="input">
+      <p>Process Node: <input type="text" id="pnode"></p>
+      <p>Area: <input type="text" id="area"></p>
+      <p>Billion Transistors: <input type="text" id="trans"></p>
+      <p><input id="button" type="submit" value="Submit"></p>  
+      <p id='answer'></p>
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        $("#button").on("click", function(){
+          let pnode = $("#pnode").val()
+          let area = $("#area").val()
+          let trans = $("#trans").val()
+
+          req = $.ajax({
+            url : '/test1',
+            type : 'POST',
+            data : {
+              pnode : pnode, 
+              area : area,
+              trans : trans
+            }
+          });
+
+          req.done(function(data){
+            let pred = data['pred']
+            $("#answer").html(pred)
+
+          })
+
+        });
+      });
+
+    </script>
+
+
+  </body>
+</html>
