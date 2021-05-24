@@ -12,8 +12,9 @@
 
     <div id="input">
       <p>Process Node: <input type="text" id="pnode"></p>
-      <p>Area: <input type="text" id="area"></p>
-      <p>Billion Transistors: <input type="text" id="trans"></p>
+      <p>Die Size: <input type="text" id="area"></p>
+      <p>Million Transistors: <input type="text" id="trans"></p>
+      <p>Memory Size: <input type="text" id="mem"></p>
       <p><input id="button" type="submit" value="Submit"></p>  
       <p id='answer'></p>
     </div>
@@ -24,6 +25,7 @@
           let pnode = $("#pnode").val()
           let area = $("#area").val()
           let trans = $("#trans").val()
+          let mem = $("#mem").val()
 
           req = $.ajax({
             url : '/test1',
@@ -31,7 +33,8 @@
             data : {
               pnode : pnode, 
               area : area,
-              trans : trans
+              trans : trans,
+              mem : mem
             }
           });
 
