@@ -86,6 +86,7 @@ $ pip install -r requirements.txt
 - This is the notebook used to train a linear regression model used for the programming exercise
 - there are comments written throughout the reference notebook to guide the instructor through
 - commentate while coding so students understand what every line of code does
+- MUST TALK ABOUT LEARNING RATE AND WHAT IT DOES
 - Don't worry about explaining what batch normalization does, as it will be covered in a later topic
 
 
