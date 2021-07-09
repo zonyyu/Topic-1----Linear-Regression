@@ -3,14 +3,11 @@ from flask import Flask, render_template, redirect, url_for, request, jsonify
 
 # Import these modules
 import numpy as np
-import import_ipynb # This one is used to 
-from gpu_perf_predictor_train import Linreg_p
 import torch
 from sklearn.preprocessing import PolynomialFeatures
 
 
-gpu_model = Linreg_p(35, 1) # Init model
-gpu_model.load_state_dict(torch.load("gpu-predictor.pt")) # load state dict
+gpu_model = torch.jit.load("gpu-predictor.pt")
 gpu_model.eval() # set to eval mode
 
 
